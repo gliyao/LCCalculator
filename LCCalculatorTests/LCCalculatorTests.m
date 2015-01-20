@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
+#import "LCCalculatorModel.h"
 
 @interface LCCalculatorTests : XCTestCase
+
+@property (strong, nonatomic) LCCalculatorModel *calculator;
 
 @end
 
@@ -17,7 +20,7 @@
 
 - (void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    _calculator = [[LCCalculatorModel alloc] init];
 }
 
 - (void)tearDown {
@@ -25,16 +28,97 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    XCTAssert(YES, @"Pass");
+- (void)testNumberAppending {
+    
+    [_calculator didReceiveInputString:@"0"];
+    [_calculator didReceiveInputString:@"0"];
+    [_calculator didReceiveInputString:@"0"];
+    XCTAssertTrue([_calculator.output isEqualToString:@"0"]);
+    
+    [_calculator didReceiveInputString:@"1"];
+    [_calculator didReceiveInputString:@"1"];
+    XCTAssertTrue([_calculator.output isEqualToString:@"11"]);
 }
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
+- (void)testNumberAppedingWithDot {
+
+    [_calculator didReceiveInputString:@"0"];
+    XCTAssertTrue([_calculator.output isEqualToString:@"0"]);
+    
+    [_calculator didReceiveInputString:@"."];
+    XCTAssertTrue([_calculator.output isEqualToString:@"0."]);
+    [_calculator didReceiveInputString:@"."];
+    [_calculator didReceiveInputString:@"."];
+    [_calculator didReceiveInputString:@"."];
+    XCTAssertTrue([_calculator.output isEqualToString:@"0."]);
+    
+    [_calculator didReceiveInputString:@"0"];
+    XCTAssertTrue([_calculator.output isEqualToString:@"0.0"]);
+    [_calculator didReceiveInputString:@"0"];
+    XCTAssertTrue([_calculator.output isEqualToString:@"0.00"]);
+    [_calculator didReceiveInputString:@"1"];
+    XCTAssertTrue([_calculator.output isEqualToString:@"0.001"]);
 }
+
+- (void)testSimpleCalculate {
+    
+    // +
+    [_calculator didReceiveInputString:@"1"];
+    XCTAssertTrue([_calculator.output isEqualToString:@"1"]);
+    [_calculator didReceiveInputString:@"+"];
+    XCTAssertTrue([_calculator.output isEqualToString:@"1"]);
+    [_calculator didReceiveInputString:@"2"];
+    XCTAssertTrue([_calculator.output isEqualToString:@"2"]);
+    [_calculator didReceiveInputString:@"="];
+    XCTAssertTrue([_calculator.output isEqualToString:@"3"]);
+    [_calculator didReceiveInputString:@"AC"];
+    XCTAssertTrue([_calculator.output isEqualToString:@"0"]);
+    
+    // -
+    [_calculator didReceiveInputString:@"4"];
+    XCTAssertTrue([_calculator.output isEqualToString:@"4"]);
+    [_calculator didReceiveInputString:@"-"];
+    XCTAssertTrue([_calculator.output isEqualToString:@"4"]);
+    [_calculator didReceiveInputString:@"3"];
+    XCTAssertTrue([_calculator.output isEqualToString:@"3"]);
+    [_calculator didReceiveInputString:@"="];
+    XCTAssertTrue([_calculator.output isEqualToString:@"1"]);
+    [_calculator didReceiveInputString:@"AC"];
+    XCTAssertTrue([_calculator.output isEqualToString:@"0"]);
+    
+    // *
+    [_calculator didReceiveInputString:@"4"];
+    XCTAssertTrue([_calculator.output isEqualToString:@"4"]);
+    [_calculator didReceiveInputString:@"*"];
+    XCTAssertTrue([_calculator.output isEqualToString:@"4"]);
+    [_calculator didReceiveInputString:@"5"];
+    XCTAssertTrue([_calculator.output isEqualToString:@"5"]);
+    [_calculator didReceiveInputString:@"="];
+    XCTAssertTrue([_calculator.output isEqualToString:@"20"]);
+    [_calculator didReceiveInputString:@"AC"];
+    XCTAssertTrue([_calculator.output isEqualToString:@"0"]);
+    
+    // /
+    [_calculator didReceiveInputString:@"4"];
+    XCTAssertTrue([_calculator.output isEqualToString:@"4"]);
+    [_calculator didReceiveInputString:@"/"];
+    XCTAssertTrue([_calculator.output isEqualToString:@"4"]);
+    [_calculator didReceiveInputString:@"2"];
+    XCTAssertTrue([_calculator.output isEqualToString:@"2"]);
+    NSLog(@"%@", _calculator.output);
+    [_calculator didReceiveInputString:@"="];
+    XCTAssertTrue([_calculator.output isEqualToString:@"2"]);
+    [_calculator didReceiveInputString:@"AC"];
+    XCTAssertTrue([_calculator.output isEqualToString:@"0"]);
+}
+
+
+// TODO: 1/0 = NaN
+// 1 + 2 + - 10 = ??
+// = 就承上次 operator and right
+
+
+
+
 
 @end

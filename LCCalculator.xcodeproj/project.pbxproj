@@ -14,6 +14,8 @@
 		8A0EC4101A6E037E00B966AF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A0EC40F1A6E037E00B966AF /* Images.xcassets */; };
 		8A0EC4131A6E037E00B966AF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A0EC4111A6E037E00B966AF /* LaunchScreen.xib */; };
 		8A0EC41F1A6E037E00B966AF /* LCCalculatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0EC41E1A6E037E00B966AF /* LCCalculatorTests.m */; };
+		8A0EC42F1A6E081500B966AF /* LCCalculatorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0EC42E1A6E081500B966AF /* LCCalculatorModel.m */; };
+		8A0EC4301A6E081500B966AF /* LCCalculatorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0EC42E1A6E081500B966AF /* LCCalculatorModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,8 @@
 		8A0EC4181A6E037E00B966AF /* LCCalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LCCalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A0EC41D1A6E037E00B966AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A0EC41E1A6E037E00B966AF /* LCCalculatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCCalculatorTests.m; sourceTree = "<group>"; };
+		8A0EC42D1A6E081500B966AF /* LCCalculatorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCCalculatorModel.h; sourceTree = "<group>"; };
+		8A0EC42E1A6E081500B966AF /* LCCalculatorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCCalculatorModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +92,7 @@
 				8A0EC40C1A6E037E00B966AF /* Main.storyboard */,
 				8A0EC40F1A6E037E00B966AF /* Images.xcassets */,
 				8A0EC4111A6E037E00B966AF /* LaunchScreen.xib */,
+				8A0EC42C1A6E081500B966AF /* Model */,
 				8A0EC4021A6E037E00B966AF /* Supporting Files */,
 			);
 			path = LCCalculator;
@@ -117,6 +122,15 @@
 				8A0EC41D1A6E037E00B966AF /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8A0EC42C1A6E081500B966AF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8A0EC42D1A6E081500B966AF /* LCCalculatorModel.h */,
+				8A0EC42E1A6E081500B966AF /* LCCalculatorModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,6 +233,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A0EC42F1A6E081500B966AF /* LCCalculatorModel.m in Sources */,
 				8A0EC40B1A6E037E00B966AF /* ViewController.m in Sources */,
 				8A0EC4081A6E037E00B966AF /* AppDelegate.m in Sources */,
 				8A0EC4051A6E037E00B966AF /* main.m in Sources */,
@@ -229,6 +244,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A0EC4301A6E081500B966AF /* LCCalculatorModel.m in Sources */,
 				8A0EC41F1A6E037E00B966AF /* LCCalculatorTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
