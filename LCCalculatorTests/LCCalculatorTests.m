@@ -116,7 +116,6 @@
     [_calculator didReceiveInputString:@"/"];
     [_calculator didReceiveInputString:@"0"];
     [_calculator didReceiveInputString:@"="];
-    
     XCTAssertTrue([_calculator.output isEqualToString:@"錯誤"]);
 }
 
@@ -125,7 +124,6 @@
     [_calculator didReceiveInputString:@"+"];
     [_calculator didReceiveInputString:@"1"];
     XCTAssertTrue([_calculator.output isEqualToString:@"1"]);
-    
     [_calculator didReceiveInputString:@"+"];
     XCTAssertTrue([_calculator.output isEqualToString:@"1"]);
 }
@@ -135,7 +133,6 @@
     [_calculator didReceiveInputString:@"+"];
     [_calculator didReceiveInputString:@"1"];
     XCTAssertTrue([_calculator.output isEqualToString:@"1"]);
-    
     [_calculator didReceiveInputString:@"="];
     XCTAssertTrue([_calculator.output isEqualToString:@"1"]);
     [_calculator didReceiveInputString:@"="];
@@ -162,6 +159,24 @@
     XCTAssertTrue([_calculator.output isEqualToString:@"1"]);
     [_calculator didReceiveInputString:@"="];
     XCTAssertTrue([_calculator.output isEqualToString:@"-1"]);
+}
+
+- (void)testComboSubtractingWithEqual {
+    
+    [_calculator didReceiveInputString:@"10"];
+    [_calculator didReceiveInputString:@"+"];
+    [_calculator didReceiveInputString:@"3"];
+    XCTAssertTrue([_calculator.output isEqualToString:@"3"]);
+    [_calculator didReceiveInputString:@"-"];
+    XCTAssertTrue([_calculator.output isEqualToString:@"13"]);
+    [_calculator didReceiveInputString:@"2"];
+    XCTAssertTrue([_calculator.output isEqualToString:@"2"]);
+    [_calculator didReceiveInputString:@"="];
+    XCTAssertTrue([_calculator.output isEqualToString:@"11"]);
+    [_calculator didReceiveInputString:@"="];
+    XCTAssertTrue([_calculator.output isEqualToString:@"9"]);
+    [_calculator didReceiveInputString:@"="];
+    XCTAssertTrue([_calculator.output isEqualToString:@"7"]);
 }
 
 @end

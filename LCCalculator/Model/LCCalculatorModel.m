@@ -14,26 +14,22 @@
 
 @property (strong, nonatomic) NSString *leftString;
 @property (strong, nonatomic) NSString *rightString;
-
-
 @property (strong, nonatomic) NSString *operator;
-
-@property (strong, nonatomic) NSArray *operators;
 @property (strong, nonatomic) NSDictionary *operatorToSelectorMappingDict;
+
 @end
 
 @implementation LCCalculatorModel
 
 - (instancetype)init {
     if(self = [super init]){
-        
-        _operators = @[@"+", @"-", @"*", @"/"];
         _operatorToSelectorMappingDict = @{
                                            @"+": @"decimalNumberByAdding:",
                                            @"-": @"decimalNumberBySubtracting:",
                                            @"*": @"decimalNumberByMultiplyingBy:",
                                            @"/": @"decimalNumberByDividingBy:"
                                            };
+        _rightString = @"";
         [self reset];
     }
     return self;
@@ -42,20 +38,15 @@
 - (void)reset {
     
     _leftString = @"0";
-    _rightString = @"";
     _operator = @"";
     self.output = @"0";
 }
 
-- (void)calculate{
+- (void)calculate {
     
-    if([_operator isEqualToString:@""]){
-
-        self.output = _leftString;
-        NSLog(@"output string = %@", _output);
-    }
-    else if ([_operators containsObject:_operator]) {
+    if ([_operatorToSelectorMappingDict objectForKey:_operator]) {
         
+        // 1/0
         if([_operator isEqualToString:@"/"] && [_rightString isEqualToString:@"0"]){
             self.output = @"錯誤";
             return;
@@ -64,84 +55,81 @@
         SEL opSelector = NSSelectorFromString(_operatorToSelectorMappingDict[_operator]);
         NSDecimalNumber *leftNumber = [NSDecimalNumber decimalNumberWithString:_leftString];
         NSDecimalNumber *rightNumber = [NSDecimalNumber decimalNumberWithString:_rightString];
+        
         NSDecimalNumber *result = [NSDecimalNumber zero];
         if ([leftNumber respondsToSelector:opSelector]){
-            
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+            #pragma clang diagnostic push
+            #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
             result = [leftNumber performSelector:opSelector withObject:rightNumber];
-#pragma clang diagnostic pop
-
+            #pragma clang diagnostic pop
         }
         
         _leftString = [result stringValue];
-        self.output = _leftString;
     }
+
+    self.output = _leftString;
 }
 
-- (void)didReceiveInputString:(NSString *)string {
+- (void)didReceiveInputString:(NSString *)inputString {
+
+    NSLog(@"inputString: %@", inputString);
     
-    if(string == nil) {
+    if(inputString == nil) {
         return;
     }
     
-    NSLog(@"input string = %@", string);
+    // input same operator
+    if ([inputString isEqualToString:_operator]){
+        return;
+    }
+    
     // reset
-    if([string isEqualToString:@"AC"]){
+    if([inputString isEqualToString:@"AC"]){
         [self reset];
+        _rightString = @"";
         return;
     }
     
     // input equal
-    else if([string isEqualToString:@"="]){
-        
+    if([inputString isEqualToString:@"="]){
         [self calculate];
         return;
     }
     
-    // input operator
-    else if([_operators containsObject:string]){
+    // input new operator
+    if([_operatorToSelectorMappingDict objectForKey:inputString]){
         
-        if(![_operators containsObject:_operator]){
+        // replace operator
+        if([_operatorToSelectorMappingDict objectForKey:_operator] && ![_rightString isEqualToString:@""]){
             [self calculate];
+            _rightString = @"";
         }
-        _operator = string;
+        
+        _operator = inputString;
         return;
     }
     
-    // input numbers
+    // left nubmer editting
     if([_operator isEqualToString:@""]){
-        // left nubmer editting
-        _leftString = [self stringByAppending:_leftString inputString:string];
-        [self calculate];
+        self.output = _leftString = [self updateString:_leftString inputString:inputString];
+        return;
     }
-    else {
-        // right number editting
-        _rightString = [self stringByAppending:_rightString inputString:string];
-        self.output = _rightString;
-    }
+    
+    // right number editting
+    self.output = _rightString = [self updateString:_rightString inputString:inputString];;
 }
 
-- (NSString *)stringByAppending:(NSString *)originString inputString:(NSString *)inputString {
+- (NSString *)updateString:(NSString *)originString inputString:(NSString *)inputString {
     
-    if([inputString isEqualToString:@"."] && [originString containsString:@"."]){
+    if([originString containsString:@"."] && [inputString isEqualToString:@"."]){
         return originString;
     }
     
     if([originString isEqualToString:@"0"] && ![inputString isEqualToString:@"."]){
-        
         return inputString;
     }
-    else {
-        return [originString stringByAppendingString:inputString];
-    }
-    return nil;
-}
 
-- (NSDecimalNumber *)appendNubmer:(NSDecimalNumber *)number withString:(NSString *)string {
-    
-    NSString *numberAfterApeending = [[number stringValue] stringByAppendingString:string];
-    return [NSDecimalNumber decimalNumberWithString:numberAfterApeending];
+    return [originString stringByAppendingString:inputString];
 }
 
 @end
