@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		8A0EC4051A6E037E00B966AF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0EC4041A6E037E00B966AF /* main.m */; };
 		8A0EC4081A6E037E00B966AF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0EC4071A6E037E00B966AF /* AppDelegate.m */; };
-		8A0EC40B1A6E037E00B966AF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0EC40A1A6E037E00B966AF /* ViewController.m */; };
 		8A0EC40E1A6E037E00B966AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A0EC40C1A6E037E00B966AF /* Main.storyboard */; };
 		8A0EC4101A6E037E00B966AF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A0EC40F1A6E037E00B966AF /* Images.xcassets */; };
 		8A0EC4131A6E037E00B966AF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A0EC4111A6E037E00B966AF /* LaunchScreen.xib */; };
 		8A0EC41F1A6E037E00B966AF /* LCCalculatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0EC41E1A6E037E00B966AF /* LCCalculatorTests.m */; };
 		8A0EC42F1A6E081500B966AF /* LCCalculatorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0EC42E1A6E081500B966AF /* LCCalculatorModel.m */; };
 		8A0EC4301A6E081500B966AF /* LCCalculatorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0EC42E1A6E081500B966AF /* LCCalculatorModel.m */; };
+		8ADCE5E31A6E508F00C36980 /* LCCalculatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADCE5E21A6E508F00C36980 /* LCCalculatorViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,8 +34,6 @@
 		8A0EC4041A6E037E00B966AF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8A0EC4061A6E037E00B966AF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8A0EC4071A6E037E00B966AF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		8A0EC4091A6E037E00B966AF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		8A0EC40A1A6E037E00B966AF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		8A0EC40D1A6E037E00B966AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8A0EC40F1A6E037E00B966AF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8A0EC4121A6E037E00B966AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -44,6 +42,8 @@
 		8A0EC41E1A6E037E00B966AF /* LCCalculatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCCalculatorTests.m; sourceTree = "<group>"; };
 		8A0EC42D1A6E081500B966AF /* LCCalculatorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCCalculatorModel.h; sourceTree = "<group>"; };
 		8A0EC42E1A6E081500B966AF /* LCCalculatorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCCalculatorModel.m; sourceTree = "<group>"; };
+		8ADCE5E11A6E508F00C36980 /* LCCalculatorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCCalculatorViewController.h; sourceTree = "<group>"; };
+		8ADCE5E21A6E508F00C36980 /* LCCalculatorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCCalculatorViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,12 +87,11 @@
 			children = (
 				8A0EC4061A6E037E00B966AF /* AppDelegate.h */,
 				8A0EC4071A6E037E00B966AF /* AppDelegate.m */,
-				8A0EC4091A6E037E00B966AF /* ViewController.h */,
-				8A0EC40A1A6E037E00B966AF /* ViewController.m */,
 				8A0EC40C1A6E037E00B966AF /* Main.storyboard */,
 				8A0EC40F1A6E037E00B966AF /* Images.xcassets */,
 				8A0EC4111A6E037E00B966AF /* LaunchScreen.xib */,
 				8A0EC42C1A6E081500B966AF /* Model */,
+				8ADCE5E01A6E508F00C36980 /* Controller */,
 				8A0EC4021A6E037E00B966AF /* Supporting Files */,
 			);
 			path = LCCalculator;
@@ -131,6 +130,15 @@
 				8A0EC42E1A6E081500B966AF /* LCCalculatorModel.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		8ADCE5E01A6E508F00C36980 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8ADCE5E11A6E508F00C36980 /* LCCalculatorViewController.h */,
+				8ADCE5E21A6E508F00C36980 /* LCCalculatorViewController.m */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,7 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A0EC42F1A6E081500B966AF /* LCCalculatorModel.m in Sources */,
-				8A0EC40B1A6E037E00B966AF /* ViewController.m in Sources */,
+				8ADCE5E31A6E508F00C36980 /* LCCalculatorViewController.m in Sources */,
 				8A0EC4081A6E037E00B966AF /* AppDelegate.m in Sources */,
 				8A0EC4051A6E037E00B966AF /* main.m in Sources */,
 			);
@@ -430,6 +438,7 @@
 				8A0EC4241A6E037E00B966AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8A0EC4251A6E037E00B966AF /* Build configuration list for PBXNativeTarget "LCCalculatorTests" */ = {
 			isa = XCConfigurationList;
@@ -438,6 +447,7 @@
 				8A0EC4271A6E037E00B966AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

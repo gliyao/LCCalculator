@@ -24,7 +24,6 @@
 }
 
 - (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
 }
 
@@ -105,20 +104,63 @@
     XCTAssertTrue([_calculator.output isEqualToString:@"4"]);
     [_calculator didReceiveInputString:@"2"];
     XCTAssertTrue([_calculator.output isEqualToString:@"2"]);
-    NSLog(@"%@", _calculator.output);
     [_calculator didReceiveInputString:@"="];
     XCTAssertTrue([_calculator.output isEqualToString:@"2"]);
     [_calculator didReceiveInputString:@"AC"];
     XCTAssertTrue([_calculator.output isEqualToString:@"0"]);
 }
 
+- (void)testNaN {
+    
+    [_calculator didReceiveInputString:@"1"];
+    [_calculator didReceiveInputString:@"/"];
+    [_calculator didReceiveInputString:@"0"];
+    [_calculator didReceiveInputString:@"="];
+    
+    XCTAssertTrue([_calculator.output isEqualToString:@"錯誤"]);
+}
 
-// TODO: 1/0 = NaN
-// 1 + 2 + - 10 = ??
-// = 就承上次 operator and right
+- (void)testComboCalculate {
+    
+    [_calculator didReceiveInputString:@"+"];
+    [_calculator didReceiveInputString:@"1"];
+    XCTAssertTrue([_calculator.output isEqualToString:@"1"]);
+    
+    [_calculator didReceiveInputString:@"+"];
+    XCTAssertTrue([_calculator.output isEqualToString:@"1"]);
+}
 
+- (void)testComboEqual {
+    
+    [_calculator didReceiveInputString:@"+"];
+    [_calculator didReceiveInputString:@"1"];
+    XCTAssertTrue([_calculator.output isEqualToString:@"1"]);
+    
+    [_calculator didReceiveInputString:@"="];
+    XCTAssertTrue([_calculator.output isEqualToString:@"1"]);
+    [_calculator didReceiveInputString:@"="];
+    XCTAssertTrue([_calculator.output isEqualToString:@"2"]);
+    [_calculator didReceiveInputString:@"="];
+    XCTAssertTrue([_calculator.output isEqualToString:@"3"]);
+    [_calculator didReceiveInputString:@"="];
+    XCTAssertTrue([_calculator.output isEqualToString:@"4"]);
+}
 
-
-
+- (void)testChangeOperator {
+    
+    [_calculator didReceiveInputString:@"5"];
+    XCTAssertTrue([_calculator.output isEqualToString:@"5"]);
+    [_calculator didReceiveInputString:@"+"];
+    XCTAssertTrue([_calculator.output isEqualToString:@"5"]);
+    [_calculator didReceiveInputString:@"-"];
+    XCTAssertTrue([_calculator.output isEqualToString:@"5"]);
+    [_calculator didReceiveInputString:@"2"];
+    XCTAssertTrue([_calculator.output isEqualToString:@"2"]);
+    [_calculator didReceiveInputString:@"="];
+    XCTAssertTrue([_calculator.output isEqualToString:@"3"]);
+    
+    
+    //TODO:
+}
 
 @end

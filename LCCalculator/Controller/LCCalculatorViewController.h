@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  LCCalculatorViewController.h
 //  LCCalculator
 //
 //  Created by Liyao on 2015/1/20.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface LCCalculatorViewController : UIViewController
 
 @end
-

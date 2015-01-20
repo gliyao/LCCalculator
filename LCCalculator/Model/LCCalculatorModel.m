@@ -35,7 +35,6 @@
                                            @"/": @"decimalNumberByDividingBy:"
                                            };
         [self reset];
-        [self calculate];
     }
     return self;
 }
@@ -57,10 +56,23 @@
     }
     else if ([_operators containsObject:_operator]) {
         
+        if([_operator isEqualToString:@"/"] && [_rightString isEqualToString:@"0"]){
+            _output = @"錯誤";
+            return;
+        }
+        
         SEL opSelector = NSSelectorFromString(_operatorToSelectorMappingDict[_operator]);
         NSDecimalNumber *leftNumber = [NSDecimalNumber decimalNumberWithString:_leftString];
         NSDecimalNumber *rightNumber = [NSDecimalNumber decimalNumberWithString:_rightString];
-        NSDecimalNumber *result = [leftNumber performSelector:opSelector withObject:rightNumber];
+        NSDecimalNumber *result = [NSDecimalNumber zero];
+        if ([leftNumber respondsToSelector:opSelector]){
+            
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+            result = [leftNumber performSelector:opSelector withObject:rightNumber];
+#pragma clang diagnostic pop
+
+        }
         
         _leftString = [result stringValue];
         _output = _leftString;
@@ -85,7 +97,7 @@
     // input operator
     else if([_operators containsObject:string]){
         
-        if(![_operator isEqualToString:@""]){
+        if(![_operators containsObject:_operator]){
             [self calculate];
         }
         _operator = string;
@@ -123,18 +135,6 @@
     }
     return nil;
 }
-
-- (void)updateOutput{
-    
-    if([_operator isEqualToString:@""]){
-        
-    }
-    else {
-        
-    }
-}
-
-
 
 - (NSDecimalNumber *)appendNubmer:(NSDecimalNumber *)number withString:(NSString *)string {
     
