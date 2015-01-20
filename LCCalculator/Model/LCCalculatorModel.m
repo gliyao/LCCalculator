@@ -44,20 +44,20 @@
     _leftString = @"0";
     _rightString = @"";
     _operator = @"";
-    _output = @"0";
+    self.output = @"0";
 }
 
 - (void)calculate{
     
     if([_operator isEqualToString:@""]){
-//        _output = [NSDecimalNumber decimalNumberWithString:_leftString];
-        _output = _leftString;
+
+        self.output = _leftString;
         NSLog(@"output string = %@", _output);
     }
     else if ([_operators containsObject:_operator]) {
         
         if([_operator isEqualToString:@"/"] && [_rightString isEqualToString:@"0"]){
-            _output = @"錯誤";
+            self.output = @"錯誤";
             return;
         }
         
@@ -75,23 +75,28 @@
         }
         
         _leftString = [result stringValue];
-        _output = _leftString;
-        NSLog(@"output string = %@", _output);
+        self.output = _leftString;
     }
 }
 
 - (void)didReceiveInputString:(NSString *)string {
     
+    if(string == nil) {
+        return;
+    }
+    
     NSLog(@"input string = %@", string);
     // reset
     if([string isEqualToString:@"AC"]){
         [self reset];
+        return;
     }
     
     // input equal
     else if([string isEqualToString:@"="]){
         
         [self calculate];
+        return;
     }
     
     // input operator
@@ -101,26 +106,23 @@
             [self calculate];
         }
         _operator = string;
+        return;
     }
     
     // input numbers
+    if([_operator isEqualToString:@""]){
+        // left nubmer editting
+        _leftString = [self stringByAppending:_leftString inputString:string];
+        [self calculate];
+    }
     else {
-        
-        if([_operator isEqualToString:@""]){
-            // left nubmer editting
-            _leftString = [self stringByAppending:_leftString inputString:string];
-            [self calculate];
-        }
-        else {
-            // right number editting
-            _rightString = [self stringByAppending:_rightString inputString:string];
-            _output = _rightString;
-        }
+        // right number editting
+        _rightString = [self stringByAppending:_rightString inputString:string];
+        self.output = _rightString;
     }
 }
 
 - (NSString *)stringByAppending:(NSString *)originString inputString:(NSString *)inputString {
-    
     
     if([inputString isEqualToString:@"."] && [originString containsString:@"."]){
         return originString;

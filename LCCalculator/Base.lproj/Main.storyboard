@@ -18,8 +18,18 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v33-WE-W2G" userLabel="topView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="150"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lIU-Z3-9OE">
+                                        <rect key="frame" x="530" y="60" width="28" height="60"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="lIU-Z3-9OE" secondAttribute="bottom" constant="30" id="MaM-qr-Ahk"/>
+                                    <constraint firstAttribute="trailing" secondItem="lIU-Z3-9OE" secondAttribute="trailing" constant="43" id="cj1-2x-LMO"/>
                                     <constraint firstAttribute="height" constant="150" id="nvS-yP-hDZ"/>
                                 </constraints>
                             </view>
@@ -34,54 +44,81 @@
                                                 <state key="normal" title="AC">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="userDidClickButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JEq-Kf-x4g"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ocH-Aa-jyv">
                                                 <rect key="frame" x="150" y="0.0" width="150" height="90"/>
-                                                <state key="normal" title="Button">
+                                                <state key="normal">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="userDidClickButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zmk-Ti-l7t"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="anD-qU-igg">
                                                 <rect key="frame" x="0.0" y="90" width="150" height="90"/>
                                                 <state key="normal" title="7">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="userDidClickButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TMh-qa-hRa"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zkw-fI-ZpQ">
                                                 <rect key="frame" x="0.0" y="180" width="150" height="90"/>
                                                 <state key="normal" title="4">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="userDidClickButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="M3u-ZL-iIe"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QD5-O9-dOO">
                                                 <rect key="frame" x="0.0" y="270" width="150" height="90"/>
                                                 <state key="normal" title="1">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="userDidClickButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="w5z-3j-sZD"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yjh-eO-vtW">
                                                 <rect key="frame" x="150" y="270" width="150" height="90"/>
                                                 <state key="normal" title="2">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="userDidClickButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="E1y-zS-zgG"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sh2-E6-CCb">
                                                 <rect key="frame" x="0.0" y="360" width="300" height="90"/>
                                                 <state key="normal" title="0">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="userDidClickButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ube-6z-Q5t"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WYu-6k-4ei">
                                                 <rect key="frame" x="150" y="90" width="150" height="90"/>
                                                 <state key="normal" title="8">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="userDidClickButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8QF-Ag-w3H"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l4t-6o-tYN">
                                                 <rect key="frame" x="150" y="180" width="150" height="90"/>
                                                 <state key="normal" title="5">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="userDidClickButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HtG-oQ-6aa"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.58039218189999997" green="0.80392163989999998" blue="0.19215688110000001" alpha="1" colorSpace="deviceRGB"/>
@@ -130,68 +167,141 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ri7-Lm-ubS" userLabel="rightView">
                                         <rect key="frame" x="300" y="0.0" width="300" height="450"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IBq-Dz-aJY">
-                                                <rect key="frame" x="50" y="23" width="50" height="50"/>
-                                                <state key="normal" title="Button">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZQQ-wG-8qK">
+                                                <rect key="frame" x="150" y="360" width="150" height="90"/>
+                                                <state key="normal" title="=">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="userDidClickButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DYg-XS-kqh"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E6s-wI-2vN">
-                                                <rect key="frame" x="120" y="23" width="50" height="50"/>
-                                                <state key="normal" title="Button">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dy1-cV-12Q">
+                                                <rect key="frame" x="0.0" y="360" width="150" height="90"/>
+                                                <state key="normal" title=".">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="userDidClickButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yzZ-uv-beC"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oMC-d9-Irh">
-                                                <rect key="frame" x="50" y="81" width="50" height="50"/>
-                                                <state key="normal" title="Button">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2iq-0W-OrL">
+                                                <rect key="frame" x="150" y="270" width="150" height="90"/>
+                                                <state key="normal" title="+">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="userDidClickButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3UU-xH-9Xp"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3y3-rf-5Av">
-                                                <rect key="frame" x="120" y="81" width="50" height="50"/>
-                                                <state key="normal" title="Button">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ndY-Wr-xdm">
+                                                <rect key="frame" x="0.0" y="270" width="150" height="90"/>
+                                                <state key="normal" title="3">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="userDidClickButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UTB-wg-cua"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sc7-u7-acm">
-                                                <rect key="frame" x="50" y="147" width="50" height="50"/>
-                                                <state key="normal" title="Button">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fow-lF-JRw">
+                                                <rect key="frame" x="150" y="180" width="150" height="90"/>
+                                                <state key="normal" title="-">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="userDidClickButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cee-m7-lL0"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1hQ-Eo-io8">
-                                                <rect key="frame" x="120" y="147" width="50" height="50"/>
-                                                <state key="normal" title="Button">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MGo-aG-cSC">
+                                                <rect key="frame" x="0.0" y="180" width="150" height="90"/>
+                                                <state key="normal" title="6">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="userDidClickButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HR8-of-9EH"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c9S-Im-F7u">
-                                                <rect key="frame" x="50" y="205" width="50" height="50"/>
-                                                <state key="normal" title="Button">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dFY-jo-sd0">
+                                                <rect key="frame" x="150" y="90" width="150" height="90"/>
+                                                <state key="normal" title="*">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="userDidClickButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dBP-Ga-g32"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p69-Pe-8wP">
-                                                <rect key="frame" x="120" y="205" width="50" height="50"/>
-                                                <state key="normal" title="Button">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bvx-2A-0a3">
+                                                <rect key="frame" x="0.0" y="90" width="150" height="90"/>
+                                                <state key="normal" title="9">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="userDidClickButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JOj-XU-wFi"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9gp-sd-L9a">
-                                                <rect key="frame" x="50" y="263" width="50" height="50"/>
-                                                <state key="normal" title="Button">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLj-kW-geT">
+                                                <rect key="frame" x="150" y="0.0" width="150" height="90"/>
+                                                <state key="normal" title="/">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="userDidClickButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DIY-4y-bsb"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZQQ-wG-8qK">
-                                                <rect key="frame" x="120" y="263" width="50" height="50"/>
-                                                <state key="normal" title="Button">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qH5-ap-G8Q">
+                                                <rect key="frame" x="0.0" y="0.0" width="150" height="90"/>
+                                                <state key="normal">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="userDidClickButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="903-8h-Rce"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="fow-lF-JRw" secondAttribute="trailing" id="1Fe-5w-xrT"/>
+                                            <constraint firstItem="XLj-kW-geT" firstAttribute="leading" secondItem="qH5-ap-G8Q" secondAttribute="trailing" id="1eF-fM-J3j"/>
+                                            <constraint firstItem="ZQQ-wG-8qK" firstAttribute="height" secondItem="XLj-kW-geT" secondAttribute="height" id="4hG-iI-gHI"/>
+                                            <constraint firstItem="MGo-aG-cSC" firstAttribute="top" secondItem="Bvx-2A-0a3" secondAttribute="bottom" id="6Ih-Bf-IyX"/>
+                                            <constraint firstItem="2iq-0W-OrL" firstAttribute="width" secondItem="ndY-Wr-xdm" secondAttribute="width" id="8P5-yQ-i49"/>
+                                            <constraint firstItem="Bvx-2A-0a3" firstAttribute="top" secondItem="qH5-ap-G8Q" secondAttribute="bottom" id="9oE-Bs-TQC"/>
+                                            <constraint firstAttribute="trailing" secondItem="2iq-0W-OrL" secondAttribute="trailing" id="Arx-Wk-jPA"/>
+                                            <constraint firstItem="Bvx-2A-0a3" firstAttribute="width" secondItem="dFY-jo-sd0" secondAttribute="width" id="HkX-Vq-oTo"/>
+                                            <constraint firstItem="ZQQ-wG-8qK" firstAttribute="width" secondItem="dy1-cV-12Q" secondAttribute="width" id="Hz3-Oc-TqX"/>
+                                            <constraint firstAttribute="bottom" secondItem="ZQQ-wG-8qK" secondAttribute="bottom" id="IAk-oe-8DP"/>
+                                            <constraint firstItem="fow-lF-JRw" firstAttribute="height" secondItem="MGo-aG-cSC" secondAttribute="height" id="JyE-dk-T8Q"/>
+                                            <constraint firstItem="ndY-Wr-xdm" firstAttribute="height" secondItem="dy1-cV-12Q" secondAttribute="height" id="N0V-bN-O2z"/>
+                                            <constraint firstItem="MGo-aG-cSC" firstAttribute="height" secondItem="dy1-cV-12Q" secondAttribute="height" id="NyG-aT-YxJ"/>
+                                            <constraint firstAttribute="bottom" secondItem="dy1-cV-12Q" secondAttribute="bottom" id="PWD-h8-Exo"/>
+                                            <constraint firstItem="ndY-Wr-xdm" firstAttribute="top" secondItem="MGo-aG-cSC" secondAttribute="bottom" id="Pm4-xH-ynJ"/>
+                                            <constraint firstItem="ZQQ-wG-8qK" firstAttribute="height" secondItem="dFY-jo-sd0" secondAttribute="height" id="VnD-Z3-jqm"/>
+                                            <constraint firstItem="ndY-Wr-xdm" firstAttribute="leading" secondItem="ri7-Lm-ubS" secondAttribute="leading" id="W55-d7-klq"/>
+                                            <constraint firstItem="qH5-ap-G8Q" firstAttribute="height" secondItem="dy1-cV-12Q" secondAttribute="height" id="XNI-hX-S49"/>
+                                            <constraint firstAttribute="trailing" secondItem="ZQQ-wG-8qK" secondAttribute="trailing" id="Z5p-tw-Tu5"/>
+                                            <constraint firstItem="ZQQ-wG-8qK" firstAttribute="top" secondItem="2iq-0W-OrL" secondAttribute="bottom" id="ZA5-cg-CK6"/>
+                                            <constraint firstItem="dy1-cV-12Q" firstAttribute="top" secondItem="ndY-Wr-xdm" secondAttribute="bottom" id="bAY-8E-87s"/>
+                                            <constraint firstItem="MGo-aG-cSC" firstAttribute="leading" secondItem="ri7-Lm-ubS" secondAttribute="leading" id="cOZ-0I-1nY"/>
+                                            <constraint firstItem="XLj-kW-geT" firstAttribute="top" secondItem="ri7-Lm-ubS" secondAttribute="top" id="ceQ-nq-9fk"/>
+                                            <constraint firstItem="ZQQ-wG-8qK" firstAttribute="leading" secondItem="dy1-cV-12Q" secondAttribute="trailing" id="fjT-xr-SG8"/>
+                                            <constraint firstItem="qH5-ap-G8Q" firstAttribute="leading" secondItem="ri7-Lm-ubS" secondAttribute="leading" id="ijr-Od-fhz"/>
+                                            <constraint firstItem="fow-lF-JRw" firstAttribute="top" secondItem="dFY-jo-sd0" secondAttribute="bottom" id="iw3-Vh-J93"/>
+                                            <constraint firstItem="dFY-jo-sd0" firstAttribute="leading" secondItem="Bvx-2A-0a3" secondAttribute="trailing" id="jdj-G9-rhV"/>
+                                            <constraint firstItem="fow-lF-JRw" firstAttribute="leading" secondItem="MGo-aG-cSC" secondAttribute="trailing" id="ncW-QQ-MSB"/>
+                                            <constraint firstAttribute="trailing" secondItem="XLj-kW-geT" secondAttribute="trailing" id="o0x-Nw-41f"/>
+                                            <constraint firstItem="ZQQ-wG-8qK" firstAttribute="height" secondItem="fow-lF-JRw" secondAttribute="height" id="ocY-df-ibH"/>
+                                            <constraint firstItem="XLj-kW-geT" firstAttribute="width" secondItem="qH5-ap-G8Q" secondAttribute="width" id="p4u-l3-MXY"/>
+                                            <constraint firstItem="fow-lF-JRw" firstAttribute="width" secondItem="MGo-aG-cSC" secondAttribute="width" id="qcg-DX-r7H"/>
+                                            <constraint firstAttribute="trailing" secondItem="dFY-jo-sd0" secondAttribute="trailing" id="rBr-qn-NIX"/>
+                                            <constraint firstItem="qH5-ap-G8Q" firstAttribute="top" secondItem="ri7-Lm-ubS" secondAttribute="top" id="sba-KZ-Etn"/>
+                                            <constraint firstItem="Bvx-2A-0a3" firstAttribute="leading" secondItem="ri7-Lm-ubS" secondAttribute="leading" id="t3g-O7-IAp"/>
+                                            <constraint firstItem="dFY-jo-sd0" firstAttribute="top" secondItem="XLj-kW-geT" secondAttribute="bottom" id="tbV-Qd-Aru"/>
+                                            <constraint firstItem="dy1-cV-12Q" firstAttribute="leading" secondItem="ri7-Lm-ubS" secondAttribute="leading" id="tgv-Lj-eTQ"/>
+                                            <constraint firstItem="ZQQ-wG-8qK" firstAttribute="height" secondItem="2iq-0W-OrL" secondAttribute="height" id="uys-Yh-FVG"/>
+                                            <constraint firstItem="2iq-0W-OrL" firstAttribute="top" secondItem="fow-lF-JRw" secondAttribute="bottom" id="vRH-K6-MMp"/>
+                                            <constraint firstItem="2iq-0W-OrL" firstAttribute="leading" secondItem="ndY-Wr-xdm" secondAttribute="trailing" id="y2T-h0-NYd"/>
+                                            <constraint firstItem="Bvx-2A-0a3" firstAttribute="height" secondItem="dy1-cV-12Q" secondAttribute="height" id="yIu-vN-bNP"/>
+                                        </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="prd-Am-qgy" userLabel="bodyView">
                                         <rect key="frame" x="8" y="8" width="600" height="450"/>
@@ -419,6 +529,9 @@
                             <constraint firstItem="tjN-X9-RpQ" firstAttribute="top" secondItem="v33-WE-W2G" secondAttribute="bottom" id="odd-3Q-bKb"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="outputLabel" destination="lIU-Z3-9OE" id="Wob-b3-fpp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
