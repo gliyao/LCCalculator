@@ -158,9 +158,10 @@
     XCTAssertTrue([_calculator.output isEqualToString:@"2"]);
     [_calculator didReceiveInputString:@"="];
     XCTAssertTrue([_calculator.output isEqualToString:@"3"]);
-    
-    
-    //TODO:
+    [_calculator didReceiveInputString:@"="];
+    XCTAssertTrue([_calculator.output isEqualToString:@"1"]);
+    [_calculator didReceiveInputString:@"="];
+    XCTAssertTrue([_calculator.output isEqualToString:@"-1"]);
 }
 
 @end
