@@ -46,6 +46,10 @@
     
     if ([_operatorToSelectorMappingDict objectForKey:_operator]) {
         
+        if([_rightString isEqualToString:@""]){
+            return;
+        }
+        
         // 1/0
         if([_operator isEqualToString:@"/"] && [_rightString isEqualToString:@"0"]){
             self.output = @"錯誤";

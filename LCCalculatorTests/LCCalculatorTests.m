@@ -187,4 +187,21 @@
     XCTAssertTrue([_calculator.output isEqualToString:@"7"]);
 }
 
+- (void)testNonRightString {
+    
+    [_calculator didReceiveInputString:@"+"];
+    XCTAssertTrue([_calculator.output isEqualToString:@"0"]);
+    [_calculator didReceiveInputString:@"="];
+    XCTAssertTrue([_calculator.output isEqualToString:@"0"]);
+    [_calculator didReceiveInputString:@"-"];
+    XCTAssertTrue([_calculator.output isEqualToString:@"0"]);
+    [_calculator didReceiveInputString:@"="];
+    XCTAssertTrue([_calculator.output isEqualToString:@"0"]);
+    [_calculator didReceiveInputString:@"-"];
+    XCTAssertTrue([_calculator.output isEqualToString:@"0"]);
+    [_calculator didReceiveInputString:@"="];
+    XCTAssertTrue([_calculator.output isEqualToString:@"0"]);
+}
+
+
 @end
