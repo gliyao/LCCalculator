@@ -42,4 +42,11 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+
+- (BOOL) application:(UIApplication *)application shouldRestoreApplicationState:(NSCoder *)coder {
+    
+    
+    return true;
+}
+
 @end
