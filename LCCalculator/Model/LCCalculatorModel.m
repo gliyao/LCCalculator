@@ -12,6 +12,7 @@
 
 @property (strong, nonatomic, readwrite) NSString *output;
 
+@property (assign, nonatomic) BOOL isLastOperatoionWasEqual;
 @property (strong, nonatomic) NSString *leftString;
 @property (strong, nonatomic) NSString *rightString;
 @property (strong, nonatomic) NSString *operator;
@@ -36,10 +37,10 @@
 }
 
 - (void)reset {
-    
-    _leftString = @"0";
+
     _operator = @"";
-    self.output = @"0";
+    self.output = _leftString = @"0";
+    _isLastOperatoionWasEqual = NO;
 }
 
 - (void)calculate {
@@ -82,11 +83,6 @@
         return;
     }
     
-    // input same operator
-    if ([inputString isEqualToString:_operator]){
-        return;
-    }
-    
     // reset
     if([inputString isEqualToString:@"AC"]){
         [self reset];
@@ -94,17 +90,20 @@
         return;
     }
     
-    // input equal
-    if([inputString isEqualToString:@"="]){
-        [self calculate];
+    if(inputString.length > 1){
+        return;
+    }
+
+    // input same operator
+    if ([inputString isEqualToString:_operator]){
         return;
     }
     
     // input new operator
     if([_operatorToSelectorMappingDict objectForKey:inputString]){
-        
+        _isLastOperatoionWasEqual = NO;
         // replace operator
-        if([_operatorToSelectorMappingDict objectForKey:_operator] && ![_rightString isEqualToString:@""]){
+        if(_operator.length > 0 && _rightString.length > 0){
             [self calculate];
             _rightString = @"";
         }
@@ -113,14 +112,26 @@
         return;
     }
     
-    // left nubmer editting
-    if([_operator isEqualToString:@""]){
-        self.output = _leftString = [self updateString:_leftString inputString:inputString];
+    // input equal
+    if([inputString isEqualToString:@"="]){
+        
+        _isLastOperatoionWasEqual = YES;
+        [self calculate];
         return;
     }
     
     // right number editting
-    self.output = _rightString = [self updateString:_rightString inputString:inputString];;
+    if (_operator.length > 0 && !_isLastOperatoionWasEqual) {
+        self.output = _rightString = [self updateString:_rightString inputString:inputString];
+        return;
+    }
+    
+    if(_isLastOperatoionWasEqual == YES && ![_leftString containsString:@"."]) {
+        _leftString = @"0";
+    }
+
+    // left nubmer editting
+    self.output = _leftString = [self updateString:_leftString inputString:inputString];
 }
 
 - (NSString *)updateString:(NSString *)originString inputString:(NSString *)inputString {
@@ -132,7 +143,7 @@
     if([originString isEqualToString:@"0"] && ![inputString isEqualToString:@"."]){
         return inputString;
     }
-
+    
     return [originString stringByAppendingString:inputString];
 }
 
