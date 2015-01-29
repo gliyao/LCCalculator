@@ -51,15 +51,15 @@
             return;
         }
         
-        // 1/0
-        if([_operator isEqualToString:@"/"] && [_rightString isEqualToString:@"0"]){
-            self.output = @"錯誤";
-            return;
-        }
-        
         SEL opSelector = NSSelectorFromString(_operatorToSelectorMappingDict[_operator]);
         NSDecimalNumber *leftNumber = [NSDecimalNumber decimalNumberWithString:_leftString];
         NSDecimalNumber *rightNumber = [NSDecimalNumber decimalNumberWithString:_rightString];
+        
+        // 1/0
+        if([_operator isEqualToString:@"/"] && [rightNumber isEqualToNumber:[NSDecimalNumber zero]]){
+            self.output = @"錯誤";
+            return;
+        }
         
         NSDecimalNumber *result = [NSDecimalNumber zero];
         if ([leftNumber respondsToSelector:opSelector]){
