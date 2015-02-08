@@ -41,7 +41,7 @@
     XCTAssertEqualObjects(_calculator.output,@"11");
 }
 
-- (void)testNumberAppedingWithDot {
+- (void)testLeftStringWithDot {
     
     // 0 . . . . 0 0 1 = 0.001
     [_calculator didReceiveInputString:@"0"];
@@ -60,7 +60,7 @@
     XCTAssertEqualObjects(_calculator.output,@"0.001");
 }
 
-- (void)testNumberAppedingWithDot2 {
+- (void)testLeftStringWithDot2 {
     
     // 0 . . . . 0 0 1 = 0.001
     [_calculator didReceiveInputString:@"0"];
@@ -71,6 +71,34 @@
     XCTAssertEqualObjects(_calculator.output,@"0.");
     [_calculator didReceiveInputString:@"1"];
     XCTAssertEqualObjects(_calculator.output,@"1");
+}
+
+- (void)testRightStringWithDot {
+    
+    // 8 + 3 . 2 =
+    [_calculator didReceiveInputString:@"8"];
+    [_calculator didReceiveInputString:@"+"];
+    [_calculator didReceiveInputString:@"3"];
+    [_calculator didReceiveInputString:@"."];
+    [_calculator didReceiveInputString:@"2"];
+    XCTAssertEqualObjects(_calculator.output, @"3.2");
+    [_calculator didReceiveInputString:@"="];
+    XCTAssertEqualObjects(_calculator.output, @"11.2");
+}
+
+- (void)testRightStringWithDot2 {
+    
+    // 5 + 2 . 4
+    [_calculator didReceiveInputString:@"5"];
+    XCTAssertEqualObjects(_calculator.output, @"5");
+    [_calculator didReceiveInputString:@"+"];
+    XCTAssertEqualObjects(_calculator.output,@"5");
+    [_calculator didReceiveInputString:@"2"];
+    XCTAssertEqualObjects(_calculator.output,@"2");
+    [_calculator didReceiveInputString:@"."];
+    XCTAssertEqualObjects(_calculator.output,@"2.");
+    [_calculator didReceiveInputString:@"4"];
+    XCTAssertEqualObjects(_calculator.output,@"2.4");
 }
 
 - (void)testSimpleCalculate {
@@ -200,8 +228,9 @@
     XCTAssertEqualObjects(_calculator.output, @"-2");
 }
 
-- (void)testNonRightString {
+- (void)testNoneRightString {
     
+    // + = - = - =
     [_calculator didReceiveInputString:@"+"];
     XCTAssertEqualObjects(_calculator.output, @"0");
     [_calculator didReceiveInputString:@"="];
@@ -218,6 +247,7 @@
 
 - (void)testLastOperationWasEqual {
     
+    // 5 + 3 = . 3 =
     [_calculator didReceiveInputString:@"5"];
     XCTAssertEqualObjects(_calculator.output, @"5");
     [_calculator didReceiveInputString:@"+"];
@@ -236,6 +266,7 @@
 
 - (void)testLastOperationWasEqual2 {
     
+    // 5 + 3 = 0 . 3 =
     [_calculator didReceiveInputString:@"5"];
     XCTAssertEqualObjects(_calculator.output, @"5");
     [_calculator didReceiveInputString:@"+"];
@@ -253,31 +284,6 @@
     XCTAssertEqualObjects(_calculator.output, @"3.3");
 }
 
-- (void)test3 {
-    
-    [_calculator didReceiveInputString:@"8"];
-    [_calculator didReceiveInputString:@"+"];
-    [_calculator didReceiveInputString:@"3"];
-    [_calculator didReceiveInputString:@"."];
-    [_calculator didReceiveInputString:@"2"];
-    XCTAssertEqualObjects(_calculator.output, @"3.2");
-    [_calculator didReceiveInputString:@"="];
-    XCTAssertEqualObjects(_calculator.output, @"11.2");
-}
-
-- (void)test2 {
-    
-    [_calculator didReceiveInputString:@"5"];
-    XCTAssertEqualObjects(_calculator.output, @"5");
-    [_calculator didReceiveInputString:@"+"];
-    XCTAssertEqualObjects(_calculator.output,@"5");
-    [_calculator didReceiveInputString:@"2"];
-    XCTAssertEqualObjects(_calculator.output,@"2");
-    [_calculator didReceiveInputString:@"."];
-    XCTAssertEqualObjects(_calculator.output,@"2.");
-    [_calculator didReceiveInputString:@"4"];
-    XCTAssertEqualObjects(_calculator.output,@"2.4");
-}
 
 - (void)testPreventInputWrongTyep {
     
