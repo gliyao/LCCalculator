@@ -1,11 +1,3 @@
-//
-//  LCCalculatorTests.m
-//  LCCalculatorTests
-//
-//  Created by Liyao on 2015/1/20.
-//  Copyright (c) 2015年 KKBOX. All rights reserved.
-//
-
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 #import "LCCalculatorModel.h"
